@@ -65,6 +65,19 @@
     font-size: 28px;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+.sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.top-icons, .bottom-icons {
+    flex-direction: row;
+}
+}
 </style>
 
 <script setup>
