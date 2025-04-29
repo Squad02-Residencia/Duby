@@ -1,31 +1,9 @@
 <template>
   <div class="dashboard">
     <!-- Sidebar -->
-    <div :class="['sidebar', { 'sidebar-collapsed': isCollapsed }]">
-      <div class="top-icons">
-        <button @click="toggleSidebar" class="menu-btn">
-          <i class="bx bx-menu"></i>
-        </button>
-        <router-link to="/dashboard" class="icon">
-          <i class="bx bx-home"></i>
-        </router-link>
-
-        <div class="icon"><i class="bx bx-star"></i></div>
-        <div class="icon"><i class="bx bx-heart"></i></div>
-        <div class="icon"><i class="bx bx-folder"></i></div>
-        <div class="icon"><i class="bx bx-calendar"></i></div>
-      </div>
-
-      <div class="bottom-icons">
-        <div class="icon"><i class="bx bx-bell"></i></div>
-        <div class="icon"><i class="bx bx-help-circle"></i></div>
-        <div class="icon"><i class="bx bx-cog"></i></div>
-        <div class="icon"><i class="bx bx-user"></i></div>
-      </div>
-    </div>
-
+    <Sidebar />
     <!-- Conteúdo Principal -->
-    <div class="content-wrapper" :class="{ 'content-expanded': isCollapsed }">
+    <div class="content" :class="{ 'content-expanded': isCollapsed }">
       <div class="main-content">
         <h1>Bem-vindo à sua Dashboard!</h1>
         <p>Modificar pela real sidebar e real página de dashboard!</p>
@@ -35,13 +13,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 
-const isCollapsed = ref(false);
+import Sidebar from '../components/Sidebar.vue';
 
-function toggleSidebar() {
-  isCollapsed.value = !isCollapsed.value;
-}
 </script>
 
 <style scoped>

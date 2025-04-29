@@ -13,6 +13,10 @@
 <style>
 /*add estilo global do app aqui */
 
+* {
+  margin: 0;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s ease;
 }
