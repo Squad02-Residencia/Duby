@@ -7,25 +7,26 @@
           <h1>Dashboard</h1>
         </div>
       </div>
-
-      <div class="blocos">
-        <div class="blocoInfo">
-          <div>
-            <p>Total conciliado</p>
-            <p>{{ formatarMoeda(valorConciliadoTotal) }}</p>
-          </div>
-          <div>
-            <p>Total Pendente</p>
-            <p>{{ formatarMoeda(valorPendenteTotal) }}</p>
-          </div>
-          <div>
-            <p>Estado de conciliação</p>
-            <p>{{ estadoConciliacao }} %</p>
-          </div>
+      <div class="blocoInfo">
+        <div>
+          <p class="textoInfo">Total conciliado</p>
+          <!-- <p>{{ formatarMoeda(valorConciliadoTotal) }}</p> -->
+          <p>R$ 9.999.999,99</p>
         </div>
-        <div class="blocoGrafico">
-          <canvas id="graficoLinha"></canvas>
+        <div>
+          <p class="textoInfo">Total Pendente</p>
+          <!-- <p>{{ formatarMoeda(valorPendenteTotal) }}</p> -->
+          <p>R$ 9.999.999,99</p>
         </div>
+        <div>
+          <p class="textoInfo">Estado de conciliação</p>
+          <!-- <p>{{ estadoConciliacao }} %</p> -->
+          <p>100 %</p>
+        </div>
+      </div>
+      <div class="blocoGrafico">
+        <p style="font-family: 14px; margin-bottom: 20px;">Transações</p>
+        <canvas id="graficoLinha" style="width: 100%; height: 500px;"></canvas>
       </div>
     </div>
   </div>
@@ -108,12 +109,46 @@ onMounted(() => {
 }
 
 .content {
+  display: flex;
   flex-grow: 1;
+  flex-direction: column;
   padding: 50px;
   box-sizing: border-box;
   max-height: 100vh;
   overflow: auto;
+  justify-content: space-between;
 }
+
+.blocoInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.blocoInfo > div {
+  padding: 1vw;
+  border: 2px solid black;
+  border-radius: 10px;
+  min-width: 20vw;
+  box-sizing: border-box;
+}
+
+.textoInfo {
+  font-size: 14px;
+}
+
+.textoInfo + p {
+  font-size: 36px ;
+  font-weight: bold;
+}
+
+.blocoGrafico {
+  border: 2px solid black;
+  padding: 2vw;
+  box-sizing: border-box;
+}
+
+
 
 @media (max-width: 768px) {
   .dashboard {
