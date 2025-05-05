@@ -9,19 +9,28 @@
       </div>
       <div class="blocoInfo">
         <div>
-          <p class="textoInfo">Total conciliado</p>
-          <!-- <p>{{ formatarMoeda(valorConciliadoTotal) }}</p> -->
-          <p>R$ 9.999.999,99</p>
+          <i class="bx bx-trending-up iconeBloco"></i>
+          <div class="infos">
+            <p class="textoInfo">Total conciliado </p>
+            <!-- <p>{{ formatarMoeda(valorConciliadoTotal) }}</p> -->
+            <p>R$ 9.999.999,99</p>
+            <p>20 % a mais que o periodo anterior</p>
+          </div>    
         </div>
         <div>
-          <p class="textoInfo">Total Pendente</p>
-          <!-- <p>{{ formatarMoeda(valorPendenteTotal) }}</p> -->
-          <p>R$ 9.999.999,99</p>
+          <i class="bx bx-trending-down iconeBloco"></i>
+          <div class="infos">
+            <p class="textoInfo">Total Pendente</p>
+            <!-- <p>{{ formatarMoeda(valorPendenteTotal) }}</p> -->
+            <p>R$ 9.999.999,99</p>
+            <p>20 % a mais que o periodo anterior</p>
+          </div>
+          
         </div>
         <div>
           <p class="textoInfo">Estado de conciliação</p>
-          <!-- <p>{{ estadoConciliacao }} %</p> -->
-          <p>100 %</p>
+          <p>{{ estadoConciliacao }} %</p>
+          <!-- <p>100 %</p> -->
         </div>
       </div>
       <div class="blocoGrafico">
@@ -47,7 +56,7 @@ let somaBanco = banco.reduce((acc, val) => acc + val, 0);
 let somaAdquirente = adquirente.reduce((acc, val) => acc + val, 0);
 
 const valorPendenteTotal = ref(Math.abs(somaBanco - somaAdquirente));
-const valorConciliadoTotal = ref((Math.abs(somaBanco + somaAdquirente) - valorPendenteTotal.value) / 2);
+const valorConciliadoTotal = ref(((somaBanco + somaAdquirente) - valorPendenteTotal.value) / 2);
 
 let conciliadoPorcentagem = ((valorConciliadoTotal.value / fatorPorcentagem()) * 100).toFixed(1);
 const estadoConciliacao = ref(conciliadoPorcentagem);
@@ -127,10 +136,14 @@ onMounted(() => {
 
 .blocoInfo > div {
   padding: 1vw;
-  border: 2px solid black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   min-width: 20vw;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
 }
 
 .textoInfo {
@@ -143,10 +156,30 @@ onMounted(() => {
 }
 
 .blocoGrafico {
-  border: 2px solid black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   padding: 2vw;
   box-sizing: border-box;
+  border-radius: 10px;
 }
+
+.iconeBloco {
+  border-radius: 100%;
+  font-size: 36px;
+  padding: 5px;
+  color: #f6f6f6;
+  width: 40px;
+  height: 40px;
+}
+
+
+.bx-trending-up {
+  background-color: lime;
+}
+
+.bx-trending-down {
+  background-color: red;
+}
+
 
 
 
