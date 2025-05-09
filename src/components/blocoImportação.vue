@@ -65,7 +65,15 @@ function handleFiles(files) {
 @media (max-width: 768px) {
     #choose-box2 {
         display: initial;
+        text-align: center;
     }
+}
+
+@media (max-width: 768px) {
+    h2, .legenda {
+        text-align: center;
+    }
+    
 }
 
 #choose-box2 {

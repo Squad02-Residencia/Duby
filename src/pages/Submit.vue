@@ -75,6 +75,14 @@ import BlocoImportacao from '../components/blocoImportação.vue';
     }
 }
 
+@media (max-width: 768px) {
+    .botãoEnviar {
+        padding: 10px;
+        font-size: 18px;
+        align-items: center;
+    }
+}
+
 body {
     display: flex;
     background-color: #F6F6F6;
