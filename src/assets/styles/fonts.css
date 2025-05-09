@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'dubyfont';
+    src: url(../fonts/TT\ Commons\ Regular.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dubyfont-bold';
+    src: url(../assets/fonts/TT\ Commons\ Bold.otf);
+}

@@ -4,7 +4,7 @@
         <div class="content">
             <h2>Importação de Dados <router-link to="/dashboard" class="botãoEnviar">Enviar</router-link></h2>
             <div class="blocos">
-                <BlocoImportacao legenda="Extrato Bancário"/>
+                <BlocoImportacao legenda="Extrato Bancário" />
                 <BlocoImportacao legenda="Relatório do Adquirente"/>
             </div>
         </div>
@@ -27,14 +27,14 @@ import BlocoImportacao from '../components/blocoImportação.vue';
 
 @font-face {
     font-family: 'dubyfont';
-    src: url(/assets/fonts/TT\ Commons\ Regular.otf);
+    src: url(../assets/fonts/TT\ Commons\ Regular.otf);
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'dubyfont-bold';
-    src: url(/assets/fonts/TT\ Commons\ Bold.otf);
+    src: url(../assets/fonts/TT\ Commons\ Bold.otf);
 }
 
 body {

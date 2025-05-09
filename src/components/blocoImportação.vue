@@ -56,8 +56,9 @@ function handleFiles(files) {
 </script>
 
 <style scoped>
+
 .legenda {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
     color: #12283F;
