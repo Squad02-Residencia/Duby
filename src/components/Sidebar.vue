@@ -37,10 +37,10 @@
 
                 </div>
 
-                <div :class="['icon', {'icon-retraido': isCollapsed}]">
+                <router-link to="/submit" :class="['icon', {'icon-retraido': isCollapsed}]">
                     <i class="bx bx-import"></i>
-                    <span v-show= !isCollapsed>Importar</span>
-                </div>
+                    <span v-show="!isCollapsed">Importar</span>
+                </router-link>
 
             </div>
             

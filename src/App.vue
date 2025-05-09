@@ -4,9 +4,10 @@
 
 <template>
   <div id="app">
-    <transition name="fade" mode="out-in">
-      <router-view />
-    </transition>
+    <Sidebar /> <!-- Sidebar fixa -->
+    <div class="content">
+        <router-view /> <!-- Conteúdo dinâmico das páginas -->
+    </div>
   </div>
 </template>
 

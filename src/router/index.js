@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LoginPage from '../pages/Login.vue';
 import ForgotPassword from '../pages/ForgotPassword.vue';
 import DashboardPage from '../pages/Dashboard.vue'; // Importei a Dashboard certinho
-
+import SubmitPage from '../pages/Submit.vue';
 const routes = [
   {
     path: '/',
@@ -18,6 +18,11 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: DashboardPage,
+  },
+  {
+    path: '/submit',
+    name: 'submit',
+    component: SubmitPage,
   },
 ];
 
