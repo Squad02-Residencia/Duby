@@ -61,6 +61,8 @@
     font-family: sans-serif;
 }
 
+@import '../assets/styles/global.css';
+
 .sidebar {
     background-color: #412884;
     color: #fff;

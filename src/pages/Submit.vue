@@ -37,6 +37,52 @@ import BlocoImportacao from '../components/blocoImportação.vue';
     src: url(../assets/fonts/TT\ Commons\ Bold.otf);
 }
 
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+    .submit, #dragText, #legenda {
+        padding: 20px;
+        gap: 20px;
+        justify-items: center ;
+    }
+}
+
+@media (max-width: 768px) {
+    #choose-box {
+        padding: 8px;
+        font-size: 14px; /* Ajusta o tamanho do texto */
+    }
+}
+
+@media (max-width: 768px) {
+    .blocos {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .blocoImportação {
+        width: 90%;
+        height: auto;
+        padding: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .botãoEnviar {
+        padding: 10px;
+        font-size: 18px;
+        align-items: center;
+    }
+}
+
 body {
     display: flex;
     background-color: #F6F6F6;
@@ -87,63 +133,15 @@ h2{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 20px; /* Espaçamento entre as caixas */
 }
 
-.blocoImportação{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 37vw;
-    height: 69vh;
-    border: 3px solid #402C82;
-    border-radius: 10px;
-}
-
-.blocoImportação.dragover{
-    background-color: #73BA60;
-    border-color: #12283F;
-    opacity: 85%;
-}
-
-.icon-upload{
-    width: 15vw;
-    height: 15vh;
-    z-index: -1;
-}
-
-#inside-box-text{
-    color: #12283F;
-}
-
-#import-icon{
-    width: 10vw;
-    height: 15vh;
-}
-
-#choose-box{
-    border-style: solid;
-    border-color: #402C82;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: px;
-    cursor: pointer;
-}
-
-#choose-box:hover{
-    background-color: #402C82;
-    transition: 0.4s;
-    color: white;
-}
-
-span{
-    margin-top: 10px;
-}
-
-.upload-feedback {
-    margin-top: 15px;
-    color: green;
-    font-weight: bold;
+@media (max-width: 768px) {
+    .blocos {
+        flex-direction: column; /* Alinha as caixas em coluna */
+        align-items: center; /* Centraliza as caixas horizontalmente */
+        gap: 20px; /* Espaçamento entre as caixas */
+    }
 }
 
 </style>
