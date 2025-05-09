@@ -3,39 +3,108 @@
     <Sidebar />
     <div class="content" :class="{ 'content-expanded': isCollapsed }">
       <div class="topo">
-        <div>
-          <h1>Dashboard</h1>
+        <h1>Dashboard</h1>
+        <p>Ola! Usuário</p>
+      </div>
+      <div class="filtros" style="display: flex;">
+        <div class="data">
+          <p>Data:</p>
+          <input type="date">
+          <input type="date">
+        </div>
+        <div class="adquirentes">
+          <p>Adquirentes</p>
+          <select name="adquirentesSelect" id="">
+            <option value="todosAdquirentes">Todos</option>
+            <option value="cielo">Cielo</option>
+            <option value="stone">Stone</option>
+            <option value="getnet">Getnet</option>
+            <option value="rede">Rede</option>
+          </select>
+        </div>
+        <div class="bandeira">
+          <p>Bandeira</p>
+          <select name="bandeiraSelect" id="">
+            <option value="todosAdquirentes">Todos</option>
+            <option value="mastercard">Mastercard</option>
+            <option value="visa">Visa</option>
+            <option value="elo">elo</option>
+            <option value="hipercard">hipercard</option>
+          </select>
         </div>
       </div>
       <div class="blocoInfo">
         <div>
-          <i class="bx bx-trending-up iconeBloco"></i>
+          <i class='bx bxs-check-circle iconeBloco'></i>
           <div class="infos">
             <p class="textoInfo">Total conciliado </p>
             <!-- <p>{{ formatarMoeda(valorConciliadoTotal) }}</p> -->
-            <p>R$ 9.999.999,99</p>
-            <p>20 % a mais que o periodo anterior</p>
+            <p>R$ 999.999.999,99</p>
+            <!-- <p>20 % a mais que o periodo anterior</p> -->
           </div>    
         </div>
         <div>
-          <i class="bx bx-trending-down iconeBloco"></i>
+          <i class='bx bxs-x-circle iconeBloco'></i>
           <div class="infos">
             <p class="textoInfo">Total Pendente</p>
             <!-- <p>{{ formatarMoeda(valorPendenteTotal) }}</p> -->
-            <p>R$ 9.999.999,99</p>
-            <p>20 % a mais que o periodo anterior</p>
+            <p>R$ 999.999.999,99</p>
+            <!-- <p>20 % a mais que o periodo anterior</p> -->
           </div>
           
         </div>
         <div>
-          <p class="textoInfo">Estado de conciliação</p>
-          <p>{{ estadoConciliacao }} %</p>
-          <!-- <p>100 %</p> -->
+          <div>
+            <p class="textoInfo">Taxa de conciliação</p>
+            <p>{{ estadoConciliacao }} %</p>
+            <!-- <p>100 %</p> -->
+          </div>
         </div>
       </div>
       <div class="blocoGrafico">
-        <p style="font-family: 14px; margin-bottom: 20px;">Transações</p>
-        <canvas id="graficoLinha" style="width: 100%; height: 500px;"></canvas>
+        <div>
+          <p style="font-family: 14px; margin-bottom: 20px;">Transações</p>
+          <canvas id="graficoLinha" style="width: 100%; height: 500px;"></canvas>
+        </div>
+        <div>
+          <table>
+            <Caption style="font-weight: bold; text-align: left;">Divergências</Caption>
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Adquirente</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>25/02</td>
+                <td>Stone</td>
+                <td>R$ 500</td>
+              </tr>
+              <tr>
+                <td>02/03</td>
+                <td>Stone</td>
+                <td>R$ 2000</td>
+              </tr>
+              <tr>
+                <td>07/03</td>
+                <td>Stone</td>
+                <td>R$ 1500</td>
+              </tr>
+              <tr>
+                <td>12/03</td>
+                <td>Stone</td>
+                <td>R$ 2000</td>
+              </tr>
+              <tr>
+                <td>18/03</td>
+                <td>Stone</td>
+                <td>R$ 2500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -125,13 +194,29 @@ onMounted(() => {
   box-sizing: border-box;
   max-height: 100vh;
   overflow: auto;
+  gap: 20px;
+}
+
+.topo {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+
+.filtros {
+  flex-wrap: wrap ;
+  justify-content: space-between;
+}
+
+.filtros > div {
+  display: flex;
+  gap: 10px;
 }
 
 .blocoInfo {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 20px;
 }
 
 .blocoInfo > div {
@@ -144,40 +229,66 @@ onMounted(() => {
   flex-direction: row;
   gap: 10px;
   align-items: center;
+  overflow: hidden;
+  width: 100%;
+  min-width: 200px;
+}
+
+.infos{
+  flex-grow: 1;
 }
 
 .textoInfo {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .textoInfo + p {
-  font-size: 36px ;
+  font-size: calc(24px + 1vw);
   font-weight: bold;
 }
 
 .blocoGrafico {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.blocoGrafico > div {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   padding: 2vw;
   box-sizing: border-box;
   border-radius: 10px;
 }
 
+
+table {
+  width: 310px;
+  text-align: center;
+  border-spacing: 0 10px;
+  border-color: black;
+}
+
+
+thead {
+  background-color: #dfdfdf;
+}
+
+tbody {
+
+}
+
 .iconeBloco {
   border-radius: 100%;
-  font-size: 36px;
-  padding: 5px;
+  font-size: 3vw;
   color: #f6f6f6;
-  width: 40px;
-  height: 40px;
 }
 
-
-.bx-trending-up {
-  background-color: lime;
+.bxs-check-circle {
+  color: lime;
 }
 
-.bx-trending-down {
-  background-color: red;
+.bxs-x-circle {
+  color: red;
 }
 
 
@@ -185,6 +296,10 @@ onMounted(() => {
 
 @media (max-width: 768px) {
   .dashboard {
+    flex-direction: column;
+  }
+
+  .blocoInfo {
     flex-direction: column;
   }
 }

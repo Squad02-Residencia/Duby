@@ -1,5 +1,5 @@
 <script setup>
-
+  document.documentElement.lang = 'pt-BR';
 </script>
 
 <template>
