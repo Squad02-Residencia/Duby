@@ -37,6 +37,55 @@ import BlocoImportacao from '../components/blocoImportação.vue';
     src: url(../assets/fonts/TT\ Commons\ Bold.otf);
 }
 
+<<<<<<< Updated upstream
+=======
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+    .submit, #dragText, #legenda {
+        padding: 20px;
+        gap: 20px;
+        justify-items: center ;
+    }
+}
+
+@media (max-width: 768px) {
+    #choose-box {
+        padding: 8px;
+        font-size: 14px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .blocos {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .blocoImportação {
+        width: 90%;
+        height: auto;
+        padding: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .botãoEnviar {
+        padding: 10px;
+        font-size: 18px;
+        align-items: center;
+    }
+}
+
+>>>>>>> Stashed changes
 body {
     display: flex;
     background-color: #F6F6F6;
