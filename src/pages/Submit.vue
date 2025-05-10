@@ -1,25 +1,40 @@
 <template>
     <div class="submit">
-        <Sidebar/>
+        <Sidebar />
         <div class="content">
-            <h2>Importação de Dados <router-link to="/dashboard" class="botãoEnviar">Enviar</router-link></h2>
-            <div class="blocos">
+            <h2>
+                Importação de Dados
+                <button @click="enviarDados" class="botãoEnviar">Enviar</button>
+            </h2>
+            <div v-if="isLoading" id="loader"><p id="loadLegenda">Carregando Dados</p></div>
+            <div v-else class="blocos">
                 <BlocoImportacao legenda="Extrato Bancário" />
-                <BlocoImportacao legenda="Relatório do Adquirente"/>
+                <BlocoImportacao legenda="Relatório do Adquirente" />
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import Sidebar from '../components/Sidebar.vue';
 import BlocoImportacao from '../components/blocoImportação.vue';
+
+const isLoading = ref(false);
+const router = useRouter();
+
+function enviarDados() {
+    isLoading.value = true;
+    setTimeout(() => {
+        isLoading.value = false;
+        router.push('/dashboard');
+    }, 3500);
+}
 </script>
 
-
-
 <style scoped>
-*{
+* {
     font-family: 'dubyfont';
     margin: 0;
     color: #12283F;
@@ -37,8 +52,6 @@ import BlocoImportacao from '../components/blocoImportação.vue';
     src: url(../assets/fonts/TT\ Commons\ Bold.otf);
 }
 
-<<<<<<< Updated upstream
-=======
 @media (max-width: 768px) {
   .sidebar {
     position: absolute;
@@ -85,9 +98,12 @@ import BlocoImportacao from '../components/blocoImportação.vue';
     }
 }
 
->>>>>>> Stashed changes
 body {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
     background-color: #F6F6F6;
 }
 
@@ -101,6 +117,54 @@ body {
     flex-direction: column;
     padding: 50px;
     gap: 50px;
+}
+
+#loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    background-color: #F6F6F6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#loader::after {
+    content: "";
+    width: 120px;
+    height: 120px;
+    border: 24px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 24px solid #402C82;
+    animation: spin 1.5s linear infinite;
+}   
+
+#loadLegenda {
+    position: absolute;
+    display: flex;
+    margin-top: 25vh;
+    justify-content: center;
+    align-items: center;
+    font-family: 'dubyfont-bold';
+    font-size: 30px;
+    color: #402C82;
 }
 
 h2{
@@ -136,63 +200,22 @@ h2{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 20px;
 }
 
-.blocoImportação{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 37vw;
-    height: 69vh;
-    border: 3px solid #402C82;
-    border-radius: 10px;
+@media (max-width: 768px) {
+    .blocos {
+        flex-direction: column;
+    }
 }
 
-.blocoImportação.dragover{
-    background-color: #73BA60;
-    border-color: #12283F;
-    opacity: 85%;
-}
-
-.icon-upload{
-    width: 15vw;
-    height: 15vh;
-    z-index: -1;
-}
-
-#inside-box-text{
-    color: #12283F;
-}
-
-#import-icon{
-    width: 10vw;
-    height: 15vh;
-}
-
-#choose-box{
-    border-style: solid;
-    border-color: #402C82;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: px;
-    cursor: pointer;
-}
-
-#choose-box:hover{
-    background-color: #402C82;
-    transition: 0.4s;
-    color: white;
-}
-
-span{
-    margin-top: 10px;
-}
-
-.upload-feedback {
-    margin-top: 15px;
-    color: green;
-    font-weight: bold;
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 </style>
