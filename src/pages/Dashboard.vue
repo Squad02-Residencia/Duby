@@ -40,26 +40,26 @@
       
       <div class="blocoInfo">
         <div>
-          <i class='bx bxs-check-circle iconeBloco'></i>
           <div class="infos">
             <p class="textoInfo">Total conciliado </p>
             <!-- <p>{{ formatarMoeda(valorConciliadoTotal) }}</p> -->
             <p>R$ 999.999.999,99</p>
             <!-- <p>20 % a mais que o periodo anterior</p> -->
           </div>    
+          <i class='bx bxs-check-circle iconeBloco'></i>
         </div>
         <div>
-          <i class='bx bxs-x-circle iconeBloco'></i>
           <div class="infos">
             <p class="textoInfo">Total Pendente</p>
             <!-- <p>{{ formatarMoeda(valorPendenteTotal) }}</p> -->
             <p>R$ 999.999.999,99</p>
             <!-- <p>20 % a mais que o periodo anterior</p> -->
           </div>
+          <i class='bx bxs-x-circle iconeBloco'></i>
           
         </div>
         <div>
-          <div>
+          <div class="infos">
             <p class="textoInfo">Taxa de conciliação</p>
             <p>{{ estadoConciliacao }} %</p>
             <!-- <p>100 %</p> -->
@@ -204,7 +204,6 @@ onMounted(() => {
   flex-direction: column;
   padding: 50px;
   box-sizing: border-box;
-  max-height: 100vh;
   overflow: auto;
   gap: 20px;
 
@@ -225,10 +224,10 @@ onMounted(() => {
 .filtros > div > select, input{
   border: 1px solid black;
   border-radius: 10px;
-  padding: 10px;
+  padding: 8px;
   margin: 5px 10px 5px 0;
   background-color: white;
-  font-size: calc(12px + 0.4vw);
+  font-size: calc(8px + 0.4vw);
 }
 
 .blocoInfo {
@@ -257,7 +256,7 @@ onMounted(() => {
 }
 
 .textoInfo {
-  font-size: 16px;
+  font-size: calc(8px + 1vw);
 }
 
 .textoInfo + p {
@@ -284,7 +283,7 @@ onMounted(() => {
 
 
 table {
-  width: 310px;
+  width: 350px;
   text-align: center;
   border-spacing: 0 10px;
   border-color: black;
@@ -319,6 +318,11 @@ thead {
   
   .dashboard {
     flex-direction: column;
+    
+  }
+
+  .content {
+    height: calc(100vh - 60px);
   }
 
   .topo {
@@ -328,6 +332,10 @@ thead {
 
   .blocoInfo {
     flex-direction: column;
+  }
+
+  .textoInfo, .textoInfo + p {
+    text-align: center;
   }
 
   .iconeBloco {
