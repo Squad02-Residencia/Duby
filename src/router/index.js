@@ -3,6 +3,7 @@ import LoginPage from '../pages/Login.vue';
 import ForgotPassword from '../pages/ForgotPassword.vue';
 import DashboardPage from '../pages/Dashboard.vue'; // Importei a Dashboard certinho
 import SubmitPage from '../pages/Submit.vue';
+import TaxesPage from '../pages/Taxes.vue';
 const routes = [
   {
     path: '/',
@@ -23,6 +24,11 @@ const routes = [
     path: '/submit',
     name: 'submit',
     component: SubmitPage,
+  },
+  {
+    path: '/taxes',
+    name: 'taxes',
+    component: TaxesPage,
   },
 ];
 
