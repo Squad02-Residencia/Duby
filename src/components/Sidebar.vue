@@ -11,10 +11,10 @@
                     <span v-show= !isCollapsed>Dashboard</span>
                 </router-link>
 
-                <div :class="['icon', {'icon-retraido': isCollapsed}]">
-                    <i class="bx bx-wallet"></i>
-                    <span v-show= !isCollapsed>Financeiro</span>
-                </div>
+                <router-link to="/taxes" :class="['icon', {'icon-retraido': isCollapsed}]">
+                    <i class="bx bx-import"></i>
+                    <span v-show="!isCollapsed">Financeiro</span>
+                </router-link>
 
                 <div :class="['icon', {'icon-retraido': isCollapsed}]">
                     <i class="bx bxs-bank"></i>
@@ -60,6 +60,8 @@
 * {
     font-family: sans-serif;
 }
+
+@import '../assets/styles/global.css';
 
 .sidebar {
     background-color: #412884;
