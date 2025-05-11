@@ -291,6 +291,7 @@ table {
   text-align: center;
   border-spacing: 0 10px;
   border-color: black;
+  border-collapse: collapse;
 }
 
 
@@ -298,6 +299,13 @@ thead {
   background-color: #dfdfdf;
 }
 
+tbody > tr{
+  border-bottom: 1px solid black;
+}
+
+td {
+  padding: 5px 0 5px 0;
+}
 
 .iconeBloco {
   border-radius: 100%;
