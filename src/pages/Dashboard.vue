@@ -323,6 +323,7 @@ thead {
 
   .content {
     height: calc(100vh - 60px);
+    padding: 20px;
   }
 
   .topo {
