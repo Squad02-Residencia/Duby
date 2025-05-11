@@ -41,7 +41,7 @@
       <div class="blocoInfo">
         <div>
           <div class="infos">
-            <p class="textoInfo">Total conciliado </p>
+            <p class="textoInfo" style="color:#73BA60;">Conciliado </p>
             <!-- <p>{{ formatarMoeda(valorConciliadoTotal) }}</p> -->
             <p>R$ 999.999.999,99</p>
             <!-- <p>20 % a mais que o periodo anterior</p> -->
@@ -50,7 +50,7 @@
         </div>
         <div>
           <div class="infos">
-            <p class="textoInfo">Total Pendente</p>
+            <p class="textoInfo" style="color:red;">Não Conciliado</p>
             <!-- <p>{{ formatarMoeda(valorPendenteTotal) }}</p> -->
             <p>R$ 999.999.999,99</p>
             <!-- <p>20 % a mais que o periodo anterior</p> -->
@@ -241,7 +241,7 @@ h1, .textoInfo + p, thead  {
 }
 
 .blocoInfo > div {
-  padding: 1vw;
+  padding: 1vw; 
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   min-width: 20vw;
@@ -276,7 +276,7 @@ h1, .textoInfo + p, thead  {
 
 .blocoGrafico > div {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  padding: 2vw;
+  padding: 1vw;
   box-sizing: border-box;
   border-radius: 10px;
 }
