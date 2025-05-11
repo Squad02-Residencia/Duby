@@ -215,6 +215,10 @@ onMounted(() => {
   justify-content: space-between;
 }
 
+h1, .textoInfo + p, thead  {
+  font-family: dubyfont-bold;
+}
+
 .filtros {
   display: flex;
   flex-wrap: wrap ;
@@ -297,7 +301,7 @@ thead {
 
 .iconeBloco {
   border-radius: 100%;
-  font-size: 50px;
+  font-size: 3vw;
   color: #f6f6f6;
 }
 

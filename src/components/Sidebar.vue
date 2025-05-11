@@ -57,10 +57,6 @@
 
 <style>
 
-* {
-    font-family: sans-serif;
-}
-
 @import '../assets/styles/global.css';
 
 .sidebar {
@@ -135,17 +131,16 @@
 
 
 #logoDuby {
-    width: 200px;
+    width: 150px;
     height: auto;
     align-self: center;
     margin-bottom: 20px;
 }
 
 #logoDubyPequena {
-    width: 50px;
-    height: 56px;
+    width: 30px;
     align-self: center;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
 }
 
 @media (max-width: 768px) {
