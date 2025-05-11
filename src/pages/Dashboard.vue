@@ -68,12 +68,12 @@
       </div>
       <div class="blocoGrafico">
         <div class="blocoGraficoLinha">
-          <p style="font-family: 14px; margin-bottom: 20px;">Transações</p>
+          <p style="font-size: calc(8px + 1vw); font-family: dubyfont-bold; margin-bottom: 20px;">Transações</p>
           <canvas id="graficoLinha" style="width: 100%; height: 90%; justify-self: center;"></canvas>
         </div>
         <div>
           <table>
-            <Caption style="font-weight: bold; text-align: left;">Divergências</Caption>
+            <Caption style="font-size: calc(8px + 1vw); font-family: dubyfont-bold; text-align: left;">Divergências</Caption>
             <thead>
               <tr>
                 <th>Data</th>
@@ -265,7 +265,7 @@ h1, .textoInfo + p, thead  {
 
 .textoInfo + p {
   font-size: calc(16px + 1vw);
-  font-weight: bold;
+  font-family: dubyfont-bold;
 }
 
 .blocoGrafico {
