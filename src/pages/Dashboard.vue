@@ -4,16 +4,19 @@
     <div class="content" :class="{ 'content-expanded': isCollapsed }">
       <div class="topo">
         <h1>Dashboard</h1>
-        <p>Ola! Usuário</p>
-      </div>
-      <div class="filtros" style="display: flex;">
+        <div class="filtros">
         <div class="data">
-          <p>Data:</p>
-          <input type="date">
-          <input type="date">
+          <div>
+            <p>De:</p>
+            <input type="date">
+          </div>
+          <div>
+            <p>até:</p>
+            <input type="date">
+          </div>
         </div>
         <div class="adquirentes">
-          <p>Adquirentes</p>
+          <p>Adquirentes:</p>
           <select name="adquirentesSelect" id="">
             <option value="todosAdquirentes">Todos</option>
             <option value="cielo">Cielo</option>
@@ -23,7 +26,7 @@
           </select>
         </div>
         <div class="bandeira">
-          <p>Bandeira</p>
+          <p>Bandeira:</p>
           <select name="bandeiraSelect" id="">
             <option value="todosAdquirentes">Todos</option>
             <option value="mastercard">Mastercard</option>
@@ -33,6 +36,8 @@
           </select>
         </div>
       </div>
+      </div>
+      
       <div class="blocoInfo">
         <div>
           <i class='bx bxs-check-circle iconeBloco'></i>
@@ -62,9 +67,9 @@
         </div>
       </div>
       <div class="blocoGrafico">
-        <div>
+        <div class="blocoGraficoLinha">
           <p style="font-family: 14px; margin-bottom: 20px;">Transações</p>
-          <canvas id="graficoLinha" style="width: 100%; height: 500px;"></canvas>
+          <canvas id="graficoLinha" style="width: 100%; height: 90%; justify-self: center;"></canvas>
         </div>
         <div>
           <table>
@@ -172,6 +177,13 @@ onMounted(() => {
     ]
 },
     options: {
+      scales: {
+          yAxes: [{
+              ticks: {
+                  stepSize: 1000,
+                  beginAtZero: true,
+              }
+          }]},
       legend: {
         display: true,
         position: "bottom",
@@ -195,6 +207,7 @@ onMounted(() => {
   max-height: 100vh;
   overflow: auto;
   gap: 20px;
+
 }
 
 .topo {
@@ -204,13 +217,18 @@ onMounted(() => {
 }
 
 .filtros {
+  display: flex;
   flex-wrap: wrap ;
-  justify-content: space-between;
+  gap: 20px;
 }
 
-.filtros > div {
-  display: flex;
-  gap: 10px;
+.filtros > div > select, input{
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 10px 5px 0;
+  background-color: white;
+  font-size: calc(12px + 0.4vw);
 }
 
 .blocoInfo {
@@ -239,18 +257,18 @@ onMounted(() => {
 }
 
 .textoInfo {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .textoInfo + p {
-  font-size: calc(24px + 1vw);
+  font-size: calc(16px + 1vw);
   font-weight: bold;
 }
 
 .blocoGrafico {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  gap: 20px;
+  height: 100%;
 }
 
 .blocoGrafico > div {
@@ -258,6 +276,10 @@ onMounted(() => {
   padding: 2vw;
   box-sizing: border-box;
   border-radius: 10px;
+}
+
+.blocoGraficoLinha {
+  flex-grow: 1;
 }
 
 
@@ -273,13 +295,10 @@ thead {
   background-color: #dfdfdf;
 }
 
-tbody {
-
-}
 
 .iconeBloco {
   border-radius: 100%;
-  font-size: 3vw;
+  font-size: 50px;
   color: #f6f6f6;
 }
 
@@ -291,16 +310,36 @@ tbody {
   color: red;
 }
 
-
+.data {
+  display: flex;
+}
 
 
 @media (max-width: 768px) {
+  
   .dashboard {
     flex-direction: column;
   }
 
+  .topo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .blocoInfo {
     flex-direction: column;
+  }
+
+  .iconeBloco {
+    display: none;
+  }
+
+  .blocoGrafico {
+    flex-direction: column;
+  }
+
+  table {
+    width: 100%;
   }
 }
 </style>

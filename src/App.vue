@@ -4,10 +4,7 @@
 
 <template>
   <div id="app">
-    <Sidebar /> <!-- Sidebar fixa -->
-    <div class="content">
-        <router-view /> <!-- Conteúdo dinâmico das páginas -->
-    </div>
+      <router-view />
   </div>
 </template>
 
