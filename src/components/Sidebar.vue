@@ -12,7 +12,7 @@
                 </router-link>
 
                 <router-link to="/taxes" :class="['icon', {'icon-retraido': isCollapsed}]">
-                    <i class="bx bx-import"></i>
+                    <i class="bx bx-dollar"></i>
                     <span v-show="!isCollapsed">Financeiro</span>
                 </router-link>
 

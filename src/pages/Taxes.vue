@@ -1,324 +1,273 @@
 <template>
-    <div class="layout">
-        <Sidebar />
-        <div class="content">
-            <h2>Gerir Taxas</h2>
-            <div class="border-container">
-                <div class="container">
-                    <div class="t">
-                        <p><strong>Total Arrecadado:</strong></p>
-                        <h1>R$999</h1>
-                    </div>
-                    <div class="t">
-                        <p><strong>Total Pendentes:</strong></p>
-                        <h1>R$999</h1>
-                    </div>
-                    <div class="t">
-                        <p><strong>Taxas Reembolso:</strong></p>
-                        <h1>R$999</h1>
-                    </div>      
-                    <div class="t">
-                        <p><strong>Número de Taxas:</strong></p>
-                        <h1>20</h1>
-                    </div>
-                </div>
-
-                <div class="tx">Taxas:</div>
-
-                <div class = "container1">
-                    <div class="t1">
-                        <p><strong>Tipo:</strong></p>
-                    </div>
-                    <div class="t1">
-                        <p><strong>Aplicação:</strong></p>
-                    </div>
-                    <div class="t1">
-                        <p><strong>Percentual:</strong></p>
-                    </div>      
-                    <div class="t1">
-                        <p><strong>Valor:</strong></p>
-                    </div>
-                    <div class="t1">
-                        <p><strong>C. Receitas:</strong></p>
-                    </div>
-                    <div class="t1">
-                        <p><strong>Status:</strong></p>
-                    </div>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="tx1">
-                    <div class="taxas1">
-                        <p><strong>Tarifa de ...</strong></p>
-                    </div>
-                    <div class="taxas1">
-                        <p><strong>Transações</strong></p>
-                    </div>
-                    <div class="taxas1">
-                        <p><strong>3%</strong></p>
-                    </div>
-                    <div class="taxas1">
-                        <p><strong>R$999</strong></p>
-                    </div>
-                    <div class="taxas1">
-                        <p><strong>Receita de Taxas</strong></p>
-                    </div>
-                    <div class="taxas1">
-                        <p><strong>Ativada</strong></p>
-                    </div>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="tx2">
-                    <div class="taxas2">
-                        <p><strong>Tarifa de ...</strong></p>
-                    </div>
-                    <div class="taxas2">
-                        <p><strong>Pagamentos</strong></p>
-                    </div>
-                    <div class="taxas2">
-                        <p><strong>Fixo</strong></p>
-                    </div>
-                    <div class="taxas2">
-                        <p><strong>R$999</strong></p>
-                    </div>
-                    <div class="taxas2">
-                        <p><strong>Receita de Taxas</strong></p>
-                    </div>
-                    <div class="taxas2">
-                        <p><strong>Desativada</strong></p>
-                    </div>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="tx3">
-                    <div class="taxas3">
-                        <p><strong>Tarifa de ...</strong></p>
-                    </div>
-                    <div class="taxas3">
-                        <p><strong>Transferência</strong></p>
-                    </div>
-                    <div class="taxas3">
-                        <p><strong>2,5%</strong></p>
-                    </div>
-                    <div class="taxas3">
-                        <p><strong>R$999</strong></p>
-                    </div>
-                    <div class="taxas3">
-                        <p><strong>Receita de Taxas</strong></p>
-                    </div>
-                    <div class="taxas3">
-                        <p><strong>Ativada</strong></p>
-                    </div>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="tx4">
-                    <div class="taxas4">
-                        <p><strong>Tarifa de ...</strong></p>
-                    </div>
-                    <div class="taxas4">
-                        <p><strong>Retiradas</strong></p>
-                    </div>
-                    <div class="taxas4">
-                        <p><strong>5%</strong></p>
-                    </div>
-                    <div class="taxas4">
-                        <p><strong>R$999</strong></p>
-                    </div>
-                    <div class="taxas4">
-                        <p><strong>Receita de Taxas</strong></p>
-                    </div>
-                    <div class="taxas4">
-                        <p><strong>Ativada</strong></p>
-                    </div>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="tx5">
-                    <div class="taxas5">
-                        <p><strong>Tarifa de ...</strong></p>
-                    </div>
-                    <div class="taxas5">
-                        <p><strong>Transações</strong></p>
-                    </div>
-                    <div class="taxas5">
-                        <p><strong>Fixo</strong></p>
-                    </div>
-                    <div class="taxas5">
-                        <p><strong>R$999</strong></p>
-                    </div>
-                    <div class="taxas5">
-                        <p><strong>Receita de Taxas</strong></p>
-                    </div>
-                    <div class="taxas5">
-                        <p><strong>Ativada</strong></p>
-                    </div>
-                </div>
-            </div>
+  <div class="layout">
+    <Sidebar />
+    <div class="content" :class="{ 'content-expanded': isSidebarCollapsed }">
+      <h2>Gerir Taxas</h2>
+      <div class="border-container">
+        <!-- Cards de resumo -->
+        <div class="container">
+          <div class="t">
+            <p><strong>Total Arrecadado:</strong></p>
+            <h1>R$999</h1>
+          </div>
+          <div class="t">
+            <p><strong>Total Pendentes:</strong></p>
+            <h1>R$999</h1>
+          </div>
+          <div class="t">
+            <p><strong>Taxas Reembolso:</strong></p>
+            <h1>R$999</h1>
+          </div>
+          <div class="t">
+            <p><strong>Número de Taxas:</strong></p>
+            <h1>20</h1>
+          </div>
         </div>
+
+        <div class="tx">Taxas:</div>
+
+        <!-- Tabela de taxas -->
+        <div class="table-container">
+          <table class="fees-table">
+            <thead>
+              <tr>
+                <th><strong>Tipo</strong></th>
+                <th><strong>Aplicação</strong></th>
+                <th><strong>Percentual</strong></th>
+                <th><strong>Valor</strong></th>
+                <th><strong>C. Receitas</strong></th>
+                <th><strong>Status</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tarifa de ...</strong></td>
+                <td><strong>Transações</strong></td>
+                <td><strong>3%</strong></td>
+                <td><strong>R$999</strong></td>
+                <td><strong>Receita de Taxas</strong></td>
+                <td><strong>Ativada</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Tarifa de ...</strong></td>
+                <td><strong>Pagamentos</strong></td>
+                <td><strong>Fixo</strong></td>
+                <td><strong>R$999</strong></td>
+                <td><strong>Receita de Taxas</strong></td>
+                <td><strong>Desativada</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Tarifa de ...</strong></td>
+                <td><strong>Transferência</strong></td>
+                <td><strong>2,5%</strong></td>
+                <td><strong>R$999</strong></td>
+                <td><strong>Receita de Taxas</strong></td>
+                <td><strong>Ativada</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Tarifa de ...</strong></td>
+                <td><strong>Retiradas</strong></td>
+                <td><strong>5%</strong></td>
+                <td><strong>R$999</strong></td>
+                <td><strong>Receita de Taxas</strong></td>
+                <td><strong>Ativada</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Tarifa de ...</strong></td>
+                <td><strong>Transações</strong></td>
+                <td><strong>Fixo</strong></td>
+                <td><strong>R$999</strong></td>
+                <td><strong>Receita de Taxas</strong></td>
+                <td><strong>Ativada</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script setup>
 import Sidebar from '../components/Sidebar.vue';
+import { ref, onMounted, onUnmounted } from 'vue';
+
+
+const isSidebarCollapsed = ref(false);
+
+
+function handleSidebarToggle(event) {
+  isSidebarCollapsed.value = event.detail.isCollapsed;
+}
+
+
+onMounted(() => {
+  window.addEventListener('sidebar-toggle', handleSidebarToggle);
+  
+
+  const sidebarElement = document.querySelector('.sidebar');
+  if (sidebarElement && sidebarElement.classList.contains('sidebar-collapsed')) {
+    isSidebarCollapsed.value = true;
+  }
+});
+
+
+onUnmounted(() => {
+  window.removeEventListener('sidebar-toggle', handleSidebarToggle);
+});
 </script>
 
 <style scoped>
 .layout {
-    display: flex;
-    height: 100vh;
-}
-
-.sidebar {
-    width: 250px;
-    background-color: #412884;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+  display: flex;
+  height: 100vh;
 }
 
 .content {
-    flex-grow: 1;
-    padding: 20px;
-    overflow-y: auto;
-    background-color: #f6f6f6;
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f6f6f6;
+  transition: margin-left 0.3s ease, width 0.3s ease;
+  width: calc(100% - 250px);
+}
+
+
+.content-expanded {
+  width: calc(100% - 80px);
 }
 
 h2 {
-    font-size: 40px;
-    color: #12283F;
-    text-align: center;
-    margin-bottom: 20px;
+  font-size: 40px;
+  color: #12283F;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-right: 1350px;
 }
 
 .border-container {
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #412884;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: #fff;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #412884;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  max-width: 1600px;
+  height: 700px;
+  flex-shrink: 0;
 }
 
 .container {
-    display: flex;
-    gap: 5rem;
-    margin: 5rem auto 0 auto;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 5rem;
+  margin: 5rem auto 0 auto;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .t {
-    border-radius: 10px;
-    border: 2px solid #412884;
-    width: 315px;
-    height: 111px;
-    flex-shrink: 0;
-    font-size: 20px;
+  border-radius: 10px;
+  border: 2px solid #412884;
+  width: 300px;
+  height: 100px;
+  flex-shrink: 0;
+  font-size: 20px;
 }
 
 h1 {
-    font-family: 'TL';
-    margin-left: 15px;
-    font-size: 32px;
+  font-family: 'TL';
+  margin-left: 15px;
+  font-size: 32px;
 }
+
+p {
+  font-family: 'TL';
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
 
 .tx {
-    margin-left: 46px;
-    margin-top: 29px;
-    font-size: 40px;
+  margin-left: 46px;
+  margin-top: 29px;
+  font-size: 40px;
+  border-bottom: none; 
 }
 
-.container1 {
-    display: flex;
-    margin-left: 127px;
-    margin-top: 19px;
-    gap: 130px;
-    font-size: 20px;
-    justify-content: left;
+/* Estilos da tabela */
+.table-container {
+  width: 90%;
+  margin: 20px auto;
+  overflow-x: auto;
 }
 
-.line {
-    border-bottom: 1px solid #000000;
-    width: 80%;
-    height: 1px;
-    background-color: #ccc;
-    margin-left: 5%;
+.fees-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+  margin-top: 10px; 
 }
 
-.tx1, .tx2, .tx3, .tx4, .tx5 {
-    display: flex;
-    margin-left: 127px;
-    margin-top: 19px;
-    gap: 120px;
-    font-size: 20px;
-    justify-content: left;
+.fees-table th {
+  text-align: left;
+  padding: 15px 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #000; 
 }
 
-.border-container {
-    margin: 0 auto; /* Centraliza o container horizontalmente */
-    margin-top: 0; /* Remove qualquer margem superior */
-    padding-top: 20px; /* Adiciona um pequeno espaçamento interno, se necessário */
-    border-radius: 10px;
-    border: 2px solid #412884;
-    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 1596px;
-    height: 800px;
-    flex-shrink: 0;
+.fees-table td {
+  padding: 15px 10px;
+  border-bottom: 1px solid #000; 
 }
 
-#iconeDuby {
-    margin: 20px;
-    cursor: pointer;
+.fees-table tbody tr:after {
+  content: none;
 }
 
-#sidebar {
-    width: 250px;
-    box-sizing: border-box;
+.fees-table tbody tr:not(:last-child) {
+  border-bottom: none;
 }
 
-.sidebar {  
-    background-color: #412884;
-    display: flex;
+/* Responsividade */
+@media (max-width: 768px) {
+  .layout {
     flex-direction: column;
-    box-sizing: border-box;
-    font-size: 24px;
-    width: 250px;
-    height: 100vh;
-    justify-content: space-between;
-}
-
-.parteSidebar {
-    display: flex;
-    flex-direction: column;
-}
-
-.parteSidebar > a {
-    gap: 10px;
-    box-sizing: border-box;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    padding-left: 25px;
-    text-decoration: none;
-    color: #f6f6f6;
-}
-
-.parteSidebar a:hover {
-    background-color: #262756;
-}
-
-.iconeSidebar {
-    width: 24px;
+  }
+  
+  .content, .content-expanded {
+    width: 100%;
+    margin-top: 60px; /* Altura da sidebar no mobile */
+  }
+  
+  .border-container {
+    width: 100%;
     height: auto;
-    margin: 0;
-    object-fit: cover;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+  
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .t {
+    width: 90%;
+  }
+  
+  .tx {
+    margin-left: 20px;
+    font-size: 30px;
+  }
+  
+  .fees-table {
+    font-size: 16px;
+  }
+  
+  .fees-table th, .fees-table td {
+    padding: 10px 5px;
+  }
 }
 </style>
