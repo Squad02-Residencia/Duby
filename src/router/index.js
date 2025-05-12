@@ -4,6 +4,7 @@ import ForgotPassword from '../pages/ForgotPassword.vue';
 import DashboardPage from '../pages/Dashboard.vue'; // Importei a Dashboard certinho
 import SubmitPage from '../pages/Submit.vue';
 import TaxesPage from '../pages/Taxes.vue';
+import infofinanc from '../pages/informacoes-financeiras.vue'
 const routes = [
   {
     path: '/',
@@ -29,6 +30,11 @@ const routes = [
     path: '/taxes',
     name: 'taxes',
     component: TaxesPage,
+  },
+  {
+    path: '/informacoes-financeiras',
+    name: 'informações-financeiras',
+    component: infofinanc,
   },
 ];
 

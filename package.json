@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "boxicons": "^2.1.4",
-    "chart.js": "^2.9.4",
+    "chart.js": "^3.9.1",
     "vue": "^3.0.0",
     "vue-router": "^4.5.1"
   },
