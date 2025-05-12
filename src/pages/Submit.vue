@@ -63,7 +63,7 @@ function enviarDados() {
 
 @media (max-width: 768px) {
     .submit, #dragText, #legenda {
-        padding: 20px;
+        padding: 10px;
         gap: 20px;
         justify-items: center ;
     }
@@ -80,14 +80,20 @@ function enviarDados() {
     .blocos {
         flex-direction: column;
         gap: 20px;
+        justify-content: center;
+
         align-items: center;
     }
 
     .blocoImportação {
         width: 90%;
         height: auto;
-        padding: 50px;
+        padding: 10px;
     }
+
+    #import-icon {
+        max-width: 70%;
+      }
 }
 
 @media (max-width: 768px) {
@@ -96,6 +102,16 @@ function enviarDados() {
         font-size: 18px;
         align-items: center;
     }
+}
+
+@media (max-width: 768px) {
+    h2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;}
 }
 
 body {
@@ -109,6 +125,7 @@ body {
 
 .submit{
     display: flex;
+    background-color: #F6F6F6;
 }
 
 .content {
