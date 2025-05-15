@@ -4,9 +4,10 @@
         <h3 class="legenda">{{ legenda }}</h3>
         <img id="import-icon" src="../assets/imagens/import-icon.svg">
         <input type="file" id="fileinput" hidden @change="onFileChange">
-        <p><font size="20px">Arraste e Solte</font></p>
+        <p id="dragText"><font size="20px">Arraste e Solte</font></p>
         <p id="choose-box" @click="triggerFileInput"><font size="5px">ou escolha um arquivo</font></p>
-        <span>utilize arquivos do tipo .csv</span>
+        <p id="choose-box2" @click="triggerFileInput"><font size="5px">Escolha um arquivo</font></p>
+        <span id="legendacssv">utilize arquivos do tipo .csv</span>
         <p class="upload-feedback">{{ feedback }}</p>
     </div>
 </template>
@@ -14,7 +15,6 @@
 <script setup>
 import { ref } from 'vue';
 
-// Define a prop chamada 'legenda'
 defineProps({
     legenda: {
         type: String,
@@ -56,6 +56,29 @@ function handleFiles(files) {
 </script>
 
 <style scoped>
+@media (max-width: 768px) {
+    #dragText {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #choose-box2 {
+        display: initial;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    h2, .legenda {
+        text-align: center;
+    }
+    
+}
+
+#choose-box2 {
+    display: none;
+}
 
 .legenda {
     font-size: 24px;
@@ -64,15 +87,19 @@ function handleFiles(files) {
     color: #12283F;
 }
 
+
 .blocoImportação{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    max-width: 60%;
     width: 37vw;
     height: 69vh;
+    max-width: 90%;
     border: 3px solid #402C82;
     border-radius: 10px;
+    box-sizing: border-box;
 }
 
 .blocoImportação.dragover{
@@ -97,6 +124,7 @@ function handleFiles(files) {
 }
 
 #choose-box{
+    display: block;
     border-style: solid;
     border-color: #402C82;
     padding: 10px;
@@ -111,6 +139,21 @@ function handleFiles(files) {
     color: white;
 }
 
+#choose-box2{
+    border-style: solid;
+    border-color: #402C82;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: px;
+    cursor: pointer;
+}
+
+#choose-box2:hover{
+    background-color: #402C82;
+    transition: 0.4s;
+    color: white;
+}
+
 span{
     margin-top: 10px;
 }
@@ -119,6 +162,39 @@ span{
     margin-top: 15px;
     color: green;
     font-weight: bold;
+}
+
+.choose-box {
+    border-style: solid;
+    border-color: #402C82;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.choose-box:hover {
+    background-color: #402C82;
+    color: white;
+}
+
+#choose-box {
+    display: block;
+}
+
+#choose-box2 {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #choose-box {
+        display: none;
+    }
+
+    #choose-box2 {
+        display: block;
+    }
 }
 
 </style>

@@ -18,14 +18,13 @@
         </div>
 
         <div class="options">
-  <label class="checkbox-wrapper">
-    <input type="checkbox" v-model="rememberMe" />
-    <span class="custom-checkbox"></span>
-    Lembrar senha
-  </label>
-  <a href="#" @click.prevent="goToForgotPassword">Esqueci minha senha</a>
-</div>
-
+          <label class="checkbox-wrapper">
+            <input type="checkbox" v-model="rememberMe" />
+            <span class="custom-checkbox"></span>
+            Lembrar senha
+          </label>
+          <a href="#" @click.prevent="goToForgotPassword">Esqueci minha senha</a>
+        </div>
 
         <button type="submit" class="btn-login">Entrar</button>
       </form>
@@ -50,29 +49,40 @@ export default {
     },
     handleLogin() {
       if (this.email && this.password) {
-        const validEmail = "usuario@dominio.com"; // email válido
-        const validPassword = "senha123"; // senha válida
+        fetch('http://localhost:3001/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email: this.email, password: this.password })
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.role) {
+              localStorage.setItem('tipoUsuario', data.role);
 
-        if (this.email === validEmail && this.password === validPassword) {
-          console.log("Login bem-sucedido!");
-          if (this.rememberMe) {
-            localStorage.setItem("userEmail", this.email);
-          }
-          this.$router.push("/dashboard"); // CORRIGIDO para dashboard ✨
-        } else {
-          console.log("Email ou senha inválidos!");
-        }
+              if (data.role === 'admin') {
+                this.$router.push('/clientes');
+              } else if (data.role === 'client') {
+                this.$router.push('/dashboard');
+              } else {
+                alert('Usuário sem permissão válida');
+              }
+            } else {
+              alert('Usuário ou senha inválidos');
+            }
+          })
+          .catch(() => alert('Erro ao conectar ao servidor'));
       } else {
-        console.log("Por favor, preencha todos os campos.");
+        alert('Preencha todos os campos');
       }
     },
     goToForgotPassword() {
-      this.$router.push({ name: 'ForgotPassword' });
-    },
+      this.$router.push('/forgot-password');
+    }
   },
 };
 </script>
-
 
 <style scoped>
 /* ===== Estilo ===== */
@@ -276,6 +286,4 @@ export default {
   left: 50%;
   transform: translate(-50%, -55%);
 }
-
-
 </style>
