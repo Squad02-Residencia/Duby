@@ -1,0 +1,16 @@
+.body{
+    background-color: #f5f5f5;
+}
+
+:root {
+    --secondary-color: #402C82;
+    --success-color: #73BA60;
+    --font-family: 'dubyfont';
+    --font-family-bold: 'dubyfont-bold';
+}
+
+* {
+    font-family: var(--font-family);
+    margin: 0;
+    color: var(--primary-color);
+}
