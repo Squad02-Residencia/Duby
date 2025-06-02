@@ -214,19 +214,7 @@ body {
   display: flex;
   flex-direction: row;
   }
-  
-  .sidebar {
-  width: 60px;
-  background-color: #3e2077;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0;
-  min-height: 100vh;
-  }
-  
+
   .nav-icons > div {
   margin: 1rem 0;
   font-size: 1.2rem;

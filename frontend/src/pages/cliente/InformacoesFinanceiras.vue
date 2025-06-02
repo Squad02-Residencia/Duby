@@ -1,6 +1,7 @@
 <template>
+  <div style="display:flex" class="responsividade-content">
+    <SidebarCliente />
     <div class="financial-dashboard-container">
-        <SidebarCliente />
       <div class="top-bar">
         <h1>Informações Financeiras</h1>
         <button class="export-button" @click="exportData">Exportar</button>
@@ -38,7 +39,7 @@
             id="buscar"
             placeholder="Digite aqui..."
             v-model="searchTerm"
-          />
+            />
         </div>
       </div>
   
@@ -67,7 +68,7 @@
             </tbody>
           </table>
         </div>
-  
+        
         <div class="charts">
           <div class="chart-container">
             <canvas ref="pieChartCanvas"></canvas>
@@ -78,10 +79,15 @@
         </div>
       </div>
     </div>
+  </div>
   </template>
-  
+
+<script setup>
+import SidebarCliente from '@/components/SidebarCliente.vue';
+</script>
+
+
 <script>
-  import SidebarCliente from '@/components/SidebarCliente.vue'; // ajuste o caminho conforme sua estrutura
   import Chart from 'chart.js/auto';
   
   export default {
