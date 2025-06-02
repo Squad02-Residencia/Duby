@@ -57,6 +57,7 @@ onUnmounted(() => {
 <style scoped>
 .dashboard {
   display: flex;
+  flex-direction: row;
   height: 100vh;
 }
 
@@ -92,8 +93,10 @@ label {
   font-size: 1.2em;
 }
 
-select, input[type="text"] {
-  width: 250px;
+select,
+input[type="text"] {
+  width: 100%;
+  max-width: 300px;
   height: 32px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -104,7 +107,7 @@ select, input[type="text"] {
 }
 
 #taxa {
-  width: 100px;
+  max-width: 100px;
 }
 
 .enviar {
@@ -126,5 +129,49 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #45aa2a;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .content {
+    width: 100% !important;
+    padding: 1rem;
+  }
+
+  .ident-adq {
+    padding: 1rem;
+  }
+
+  .enviar {
+    justify-content: center;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  select,
+  input[type="text"] {
+    font-size: 0.9em;
+    padding: 6px;
+  }
+
+  label {
+    font-size: 1em;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .ident-adq {
+    box-shadow: none;
+    border: none;
+  }
 }
 </style>
