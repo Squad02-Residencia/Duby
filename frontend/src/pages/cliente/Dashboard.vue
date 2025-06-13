@@ -35,6 +35,7 @@
             <option value="hipercard">hipercard</option>
           </select>
         </div>
+        <button class="btnExp">Exportar</button>
       </div>
       </div>
       
@@ -320,6 +321,24 @@ td {
 
 .data {
   display: flex;
+}
+
+.btnExp{
+  cursor: pointer;
+  background-color: #412884;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px;
+  align-self: center;
+  font-size: calc(12px + 0.5vw);
+  box-sizing: border-box;
+}
+
+.btnExp:hover {
+  background-color: #f6f6f6;
+  color: #412884;
+  outline: 2px solid #412884;
 }
 
 
